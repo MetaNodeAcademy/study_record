@@ -7,7 +7,7 @@ func IsPalindrome() {
 	var str string
 	var num int
 	var strlen int
-	for true {
+	for {
 		fmt.Scan(&str)
 		strlen = len(str)
 		num = strlen
@@ -35,9 +35,11 @@ func IsPalindrome() {
 			if is {
 				if v != char {
 					fmt.Print("false")
+					break
 				} else {
 					if i == num-1 {
 						fmt.Print("true")
+						break
 					}
 				}
 			}
