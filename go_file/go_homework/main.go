@@ -1,24 +1,12 @@
 package main
 
 import (
-	"fmt"
-	"validparentheses"
+	"github.com/MetaNodeAcademy/study_record/tree/main/go_file/go_homework/palindromicnumber"
+	"github.com/MetaNodeAcademy/study_record/tree/main/go_file/go_homework/validparentheses"
 )
 
 func main() {
-	testCases := []string{
-		"()",
-		"()[]{}",
-		"(]",
-		"([)]",
-		"{[]}",
-	}
-
-	for _, testCase := range testCases {
-		result := validparentheses.IsValid(testCase)
-		fmt.Printf("Input: %s, Output: %v\n", testCase, result)
-	}
-
-	validparentheses.IsValid("()[]{}")
+	palindromicnumber.IsPalindrome()
+	validparentheses.IsValid()
 	return
 }
