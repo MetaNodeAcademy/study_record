@@ -4,30 +4,54 @@ import "math"
 
 // 回文数
 func IsPalindrome(x int) bool {
-	var input int
-	ispalindrome := false
+	//===========3============================//
 	if x < 0 {
-		input = -x
+		return false
 	}
-	num := 0
-	for i := 0; ; i++ {
-		if 0 < input%int(math.Pow10(i)) && int(math.Pow10(i)) < 10 {
-			num = i
+	ispalindrome := false
+	charmap := map[int]int{}
+	input := x
+	for i := 1; ; i++ {
+		charmap[i] = input % int(math.Pow10(1))
+		input = input / int(math.Pow10(1))
+		if (input < 10) && (input > -10) {
+			charmap[i+1] = input
 			break
 		}
 	}
-	for i := 0; ; i++ {
-		if i == num {
+	num := len(charmap)
+	for i := 1; ; i++ {
+		if i == num-i+1 {
 			ispalindrome = true
 			break
 		}
-		if input%int(math.Pow10(i)) != input%int(math.Pow10(num)) {
+		if charmap[i] != charmap[num-i+1] {
 			ispalindrome = false
 			break
 		}
 	}
-
 	return ispalindrome
+	//===========2============================//
+	// var input int = x
+	// ispalindrome := false
+	// // if x < 0 {
+	// // 	input = -x
+	// // }
+	// inputstr := strconv.Itoa(input)
+	// num := len(inputstr)
+	// num--
+	// for i, v := range inputstr {
+	// 	if i == num-i {
+	// 		ispalindrome = true
+	// 		break
+	// 	}
+	// 	if v != rune(inputstr[num-i]) {
+	// 		ispalindrome = false
+	// 		break
+	// 	}
+	// }
+	// return ispalindrome
+	//===========1============================//
 	// var str string
 	// var num int
 	// var strlen int
