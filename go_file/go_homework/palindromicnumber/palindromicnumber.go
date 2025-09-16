@@ -1,5 +1,7 @@
 package palindromicnumber
 
+import "math"
+
 // 回文数
 func IsPalindrome(x int) bool {
 	var input int
@@ -9,7 +11,7 @@ func IsPalindrome(x int) bool {
 	}
 	num := 0
 	for i := 0; ; i++ {
-		if 0 < input%(10^i) < 10 {
+		if 0 < input%int(math.Pow10(i)) && int(math.Pow10(i)) < 10 {
 			num = i
 			break
 		}
@@ -19,7 +21,7 @@ func IsPalindrome(x int) bool {
 			ispalindrome = true
 			break
 		}
-		if input%(10^i) != input%(10^num) {
+		if input%int(math.Pow10(i)) != input%int(math.Pow10(num)) {
 			ispalindrome = false
 			break
 		}
