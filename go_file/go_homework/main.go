@@ -10,13 +10,14 @@ import (
 	"github.com/MetaNodeAcademy/study_record/tree/main/go_file/go_homework/longestcommonprefix"
 	"github.com/MetaNodeAcademy/study_record/tree/main/go_file/go_homework/palindromicnumber"
 	"github.com/MetaNodeAcademy/study_record/tree/main/go_file/go_homework/plusone"
+	"github.com/MetaNodeAcademy/study_record/tree/main/go_file/go_homework/removeduplicates"
 	"github.com/MetaNodeAcademy/study_record/tree/main/go_file/go_homework/thenumberthatappearsonlyonce"
 	"github.com/MetaNodeAcademy/study_record/tree/main/go_file/go_homework/validparentheses"
 )
 
 func main() {
 	var num int
-	num = 5
+	num = 6
 	switch num {
 	case 1:
 		//回文数
@@ -60,6 +61,18 @@ func main() {
 		}
 		result := plusone.PlusOne(digits)
 		fmt.Println("加一后的结果是：", result)
+	case 6:
+		// 删除有序数组中的重复项
+		var digits []int
+		reader := bufio.NewReader(os.Stdin)
+		line, _ := reader.ReadString('\n')
+		line = strings.TrimSpace(line)
+		strs := strings.Split(line, ",")
+		for _, v := range strs {
+			n, _ := strconv.Atoi(v)
+			digits = append(digits, n)
+		}
+		fmt.Println("删除有序数组中的重复项", removeduplicates.RemoveDuplicates(digits))
 	default:
 		fmt.Println("无效输入")
 
