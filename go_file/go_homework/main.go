@@ -4,16 +4,18 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 
 	"github.com/MetaNodeAcademy/study_record/tree/main/go_file/go_homework/longestcommonprefix"
 	"github.com/MetaNodeAcademy/study_record/tree/main/go_file/go_homework/palindromicnumber"
+	"github.com/MetaNodeAcademy/study_record/tree/main/go_file/go_homework/thenumberthatappearsonlyonce"
 	"github.com/MetaNodeAcademy/study_record/tree/main/go_file/go_homework/validparentheses"
 )
 
 func main() {
 	var num int
-	num = 3
+	num = 4
 	switch num {
 	case 1:
 		//回文数
@@ -32,6 +34,18 @@ func main() {
 		line = strings.TrimSpace(line)   // 去掉换行
 		strs := strings.Split(line, " ") // 按空格拆分
 		fmt.Println(longestcommonprefix.LongestCommonPrefix(strs))
+	case 4:
+		// 只出现一次的数字
+		var nums []int
+		reader := bufio.NewReader(os.Stdin)
+		line, _ := reader.ReadString('\n')
+		line = strings.TrimSpace(line)
+		strs := strings.Split(line, " ")
+		for _, v := range strs {
+			n, _ := strconv.Atoi(v)
+			nums = append(nums, n)
+		}
+		fmt.Println("只出现一次的数字是：", thenumberthatappearsonlyonce.SingleNumber(nums))
 	default:
 		fmt.Println("无效输入")
 
