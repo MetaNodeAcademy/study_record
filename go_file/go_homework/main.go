@@ -2,12 +2,14 @@ package main
 
 import (
 	"bufio"
+	"encoding/json"
 	"fmt"
 	"os"
 	"strconv"
 	"strings"
 
 	"github.com/MetaNodeAcademy/study_record/tree/main/go_file/go_homework/longestcommonprefix"
+	"github.com/MetaNodeAcademy/study_record/tree/main/go_file/go_homework/mergeintervals"
 	"github.com/MetaNodeAcademy/study_record/tree/main/go_file/go_homework/palindromicnumber"
 	"github.com/MetaNodeAcademy/study_record/tree/main/go_file/go_homework/plusone"
 	"github.com/MetaNodeAcademy/study_record/tree/main/go_file/go_homework/removeduplicates"
@@ -16,8 +18,7 @@ import (
 )
 
 func main() {
-	var num int
-	num = 6
+	num := 7
 	switch num {
 	case 1:
 		//回文数
@@ -73,9 +74,16 @@ func main() {
 			digits = append(digits, n)
 		}
 		fmt.Println("删除有序数组中的重复项", removeduplicates.RemoveDuplicates(digits))
+	case 7:
+		// 合并区间
+		var intervals [][]int
+		reader := bufio.NewReader(os.Stdin)
+		line, _ := reader.ReadString('\n')
+		line = strings.TrimSpace(line)
+		_ = json.Unmarshal([]byte(line), &intervals)
+		fmt.Println("合并区间", mergeintervals.MergeIntervals(intervals))
 	default:
 		fmt.Println("无效输入")
 
 	}
-	return
 }
