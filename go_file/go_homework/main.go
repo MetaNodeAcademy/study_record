@@ -14,11 +14,12 @@ import (
 	"github.com/MetaNodeAcademy/study_record/tree/main/go_file/go_homework/plusone"
 	"github.com/MetaNodeAcademy/study_record/tree/main/go_file/go_homework/removeduplicates"
 	"github.com/MetaNodeAcademy/study_record/tree/main/go_file/go_homework/thenumberthatappearsonlyonce"
+	"github.com/MetaNodeAcademy/study_record/tree/main/go_file/go_homework/twonumberssum"
 	"github.com/MetaNodeAcademy/study_record/tree/main/go_file/go_homework/validparentheses"
 )
 
 func main() {
-	num := 7
+	num := 8
 	switch num {
 	case 1:
 		//回文数
@@ -82,6 +83,15 @@ func main() {
 		line = strings.TrimSpace(line)
 		_ = json.Unmarshal([]byte(line), &intervals)
 		fmt.Println("合并区间", mergeintervals.MergeIntervals(intervals))
+	case 8:
+		nums := []int{}
+		reader := bufio.NewReader(os.Stdin)
+		line, _ := reader.ReadString('\n')
+		line = strings.TrimSpace(line)
+		_ = json.Unmarshal([]byte(line), &nums)
+		var target int
+		fmt.Scan(&target)
+		fmt.Println("两数之和", twonumberssum.TwoSum(nums, target))
 	default:
 		fmt.Println("无效输入")
 
